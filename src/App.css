@@ -88,3 +88,7 @@ button.primary {
   margin-left: 15px;
   background-color: #f1f1ff;
 }
+
+.buttons {
+  padding: 12px 14px;
+}

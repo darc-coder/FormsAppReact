@@ -23,23 +23,25 @@ export default function FormGroup({ page }) {
             ))}
         </form>
       </div>
-      <Link to={page == 1 ? "/wizard/page-2" : "/wizard/page-1"}>
-        <button type="button">{page == 1 ? "Next" : "Back"}</button>
-      </Link>
-      {page == 2 && (
-        <button
-          className="primary"
-          type="button"
-          onClick={() =>
-            localStorage.setItem(
-              "savedForm",
-              JSON.stringify({ data1: formState, data2: formIIState })
-            )
-          }
-        >
-          Save
-        </button>
-      )}
+      <div className="buttons">
+        <Link to={page == 1 ? "/wizard/page-2" : "/wizard/page-1"}>
+          <button type="button">{page == 1 ? "Next" : "Back"}</button>
+        </Link>
+        {page == 2 && (
+          <button
+            className="primary"
+            type="button"
+            onClick={() =>
+              localStorage.setItem(
+                "savedForm",
+                JSON.stringify({ data1: formState, data2: formIIState })
+              )
+            }
+          >
+            Save
+          </button>
+        )}
+      </div>
     </div>
   );
 }
