@@ -7,12 +7,14 @@ export default function InputField({ name }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     const index = e.target.getAttribute("index");
+
     setFormState((prevState) => {
       prevState[name][index] = value;
       return {
         ...prevState,
       };
     });
+
     setTimeout(() => {
       e.target.focus();
     }, 200);
@@ -48,7 +50,7 @@ export default function InputField({ name }) {
       <label htmlFor={name}>{name}</label>
       {name &&
         formState[name]?.map((val, index) => (
-          <div key={val} className="input-box">
+          <div key={val + index} className="input-box">
             <input
               type="text"
               placeholder={name}
