@@ -14,10 +14,6 @@ export default function InputField({ name }) {
         ...prevState,
       };
     });
-
-    setTimeout(() => {
-      e.target.focus();
-    }, 200);
   };
 
   const addValue = (name) => {
@@ -45,6 +41,8 @@ export default function InputField({ name }) {
     console.log(index, name, value, formState);
   };
 
+  const inputTypeMap = { Email: "email", Contact: "tel" };
+
   return (
     <div className="field">
       <label htmlFor={name}>{name}</label>
@@ -52,7 +50,7 @@ export default function InputField({ name }) {
         formState[name]?.map((val, index) => (
           <div key={val + index} className="input-box">
             <input
-              type="text"
+              type={inputTypeMap[name] ? inputTypeMap[name] : "text"}
               placeholder={name}
               name={name}
               defaultValue={val}
